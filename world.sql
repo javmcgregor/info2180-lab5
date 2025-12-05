@@ -22,10 +22,6 @@ DROP DATABASE IF EXISTS world;
 CREATE DATABASE world;
 USE world;
 
-GRANT ALL PRIVILEGES ON world.* TO 'lab5_user'@'localhost';
-FLUSH PRIVILEGES;
-
-
 --
 -- Table structure for table `cities`
 --

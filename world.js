@@ -15,13 +15,13 @@ window.onload = function () {
         // Create AJAX request
         let request = new XMLHttpRequest();
 
-        // Build the URL with the GET parameter
+        // Builds the URL with the GET parameter
         let url = "world.php?country=" + encodeURIComponent(country);
 
-        // Set up the request
+        // Sets up the request
         request.open("GET", url, true);
 
-        // Handle the response
+        // This handles the response
         request.onreadystatechange = function () {
             if (request.readyState === XMLHttpRequest.DONE) {
                 if (request.status === 200) {
@@ -33,7 +33,7 @@ window.onload = function () {
             }
         };
 
-        // Send the AJAX request
+        // Sends the AJAX request
         request.send();
     });
 };
