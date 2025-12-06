@@ -10,10 +10,12 @@ body {
 header {
     text-align: center;
     margin-bottom: 20px;
+    background-color: #434c5e;
+    padding: 30px;
 }
 
 h1 {
-    color: #2c3e50;
+    color: white;
 }
 
 /* --- Controls Styling --- */
