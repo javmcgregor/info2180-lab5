@@ -4,28 +4,32 @@ window.onload = function () {
 
     // Get DOM elements
     let lookupBtn = document.getElementById("lookup");
+    let lookupCitiesBtn = document.getElementById("lookup-cities");
     let countryInput = document.getElementById("country");
     let resultDiv = document.getElementById("result");
 
-    // Listen for button click
+    // --- Lookup Country ---
     lookupBtn.addEventListener("click", function () {
-
-        let country = countryInput.value.trim(); // get text input
-
-        // Create AJAX request
-        let request = new XMLHttpRequest();
-
-        // Builds the URL with the GET parameter
+        let country = countryInput.value.trim();
         let url = "world.php?country=" + encodeURIComponent(country);
+        fetchData(url);
+    });
 
-        // Sets up the request
+    // --- Lookup Cities ---
+    lookupCitiesBtn.addEventListener("click", function () {
+        let country = countryInput.value.trim();
+        let url = "world.php?country=" + encodeURIComponent(country) + "&lookup=cities";
+        fetchData(url);
+    });
+
+    // --- Common AJAX function ---
+    function fetchData(url) {
+        let request = new XMLHttpRequest();
         request.open("GET", url, true);
 
-        // This handles the response
         request.onreadystatechange = function () {
             if (request.readyState === XMLHttpRequest.DONE) {
                 if (request.status === 200) {
-                    // Insert the returned HTML into the page
                     resultDiv.innerHTML = request.responseText;
                 } else {
                     resultDiv.innerHTML = "<p>Error fetching data.</p>";
@@ -33,7 +37,6 @@ window.onload = function () {
             }
         };
 
-        // Sends the AJAX request
         request.send();
-    });
+    }
 };
